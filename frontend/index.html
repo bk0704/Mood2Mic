@@ -1,0 +1,49 @@
+<!-- frontend/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mood2Mic 🎧</title>
+  <style>
+    body { font-family: sans-serif; padding: 2rem; max-width: 600px; margin: auto; }
+    input, button { padding: 0.5rem; width: 100%; margin-top: 1rem; }
+    .result { margin-top: 2rem; }
+    .song { margin: 1rem 0; }
+    .song a { margin-right: 10px; }
+  </style>
+</head>
+<body>
+  <h1>Mood2Mic 🎤</h1>
+  <p>Enter your mood (like a tweet):</p>
+  <textarea id="mood" rows="3"></textarea>
+  <button onclick="getSongs()">Get My Rap Playlist</button>
+
+  <div class="result" id="results"></div>
+
+  <script>
+    async function getSongs() {
+      const text = document.getElementById('mood').value;
+      const res = await fetch('/predict', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text })
+      });
+
+      const data = await res.json();
+      const resultsDiv = document.getElementById('results');
+      resultsDiv.innerHTML = `<h2>Emotion: ${data.emotion.label} (${(data.emotion.confidence * 100).toFixed(1)}%)</h2>`;
+
+      data.results.forEach(song => {
+        resultsDiv.innerHTML += `
+          <div class="song">
+            <strong>${song.title}</strong><br>
+            <a href="${song.youtube}" target="_blank">▶️ YouTube</a>
+            <a href="${song.spotify}" target="_blank">🎧 Spotify</a>
+            <a href="${song.apple}" target="_blank">🍎 Apple</a>
+          </div>
+        `;
+      });
+    }
+  </script>
+</body>
+</html>

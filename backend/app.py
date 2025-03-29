@@ -22,3 +22,6 @@ def predict(input: MoodInput):
         "emotion": emotion,
         "results": links
     }
+
+from fastapi.staticfiles import StaticFiles
+app.mount("/", StaticFiles(directory="../frontend", html=True), name="frontend")
