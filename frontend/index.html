@@ -5,12 +5,100 @@
   <meta charset="UTF-8">
   <title>Mood2Mic 🎧</title>
   <style>
-    body { font-family: sans-serif; padding: 2rem; max-width: 600px; margin: auto; }
-    input, button { padding: 0.5rem; width: 100%; margin-top: 1rem; }
-    .result { margin-top: 2rem; }
-    .song { margin: 1rem 0; }
-    .song a { margin-right: 10px; }
-  </style>
+    :root {
+      --spotify-green: #1DB954;
+      --dark-bg: #121212;
+      --lighter-dark: #181818;
+      --light-gray: #b3b3b3;
+      --white: #ffffff;
+    }
+  
+    body {
+      background-color: var(--dark-bg);
+      color: var(--white);
+      font-family: 'Helvetica Neue', sans-serif;
+      padding: 2rem;
+      max-width: 600px;
+      margin: auto;
+    }
+  
+    h1 {
+      font-size: 2rem;
+      color: var(--spotify-green);
+      margin-bottom: 1rem;
+    }
+  
+    p {
+      color: var(--light-gray);
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+  
+    textarea {
+      background-color: var(--lighter-dark);
+      color: var(--white);
+      border: 1px solid var(--light-gray);
+      border-radius: 8px;
+      padding: 1rem;
+      width: 100%;
+      resize: vertical;
+    }
+  
+    button {
+      background-color: var(--spotify-green);
+      color: var(--white);
+      border: none;
+      padding: 0.75rem;
+      margin-top: 1rem;
+      font-weight: bold;
+      border-radius: 999px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 1rem;
+      transition: transform 0.2s ease;
+    }
+  
+    button:hover {
+      transform: scale(1.03);
+    }
+  
+    .result {
+      margin-top: 2rem;
+    }
+  
+    h2 {
+      color: var(--white);
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+  
+    .song {
+      background-color: var(--lighter-dark);
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+  
+    .song strong {
+      font-size: 1.1rem;
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--white);
+    }
+  
+    .song a {
+      margin-right: 10px;
+      color: var(--light-gray);
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+  
+    .song a:hover {
+      color: var(--white);
+      text-decoration: underline;
+    }
+  </style>  
 </head>
 <body>
   <h1>Mood2Mic 🎤</h1>
