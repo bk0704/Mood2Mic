@@ -1,9 +1,16 @@
+import sys
+import os
+sys.path.append(os.path.dirname(__file__))
+
 from fastapi import FastAPI
 from pydantic import BaseModel
 from emotion_model import predict_emotion
 from music_prompt import generate_prompt
 from perplexity_api import query_perplexity
 from utils import linkify_songs
+
+
+
 
 app = FastAPI()
 
