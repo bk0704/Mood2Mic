@@ -52,7 +52,7 @@ The emotion label is then used to generate a music search prompt via Perplexity.
 - HTML, CSS (Spotify-inspired), JavaScript
 
 **Backend:**  
-- Node.js + Express  
+- FastAPI
 - Python (for model inference)  
 - HuggingFace Transformers
 
